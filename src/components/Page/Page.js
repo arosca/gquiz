@@ -5,15 +5,24 @@ import { View } from 'react-native'
 
 const PageEl = styled(View)`
   flex: 1;
+  padding: 60px 30px;
+`
+
+const BodyEl = styled(View)`
+  flex: 1;
 `
 
 type Props = {
-  children: node
+  children: mixed
 }
-export default class Page extends React.Component<Props> {
+class Page extends React.Component<Props> {
   render() {
     return (
-      <PageEl>{this.props.children}</PageEl>
+      <PageEl>{ this.props.children }</PageEl>
     )
   }
 }
+
+Page.Body = (props: Props) => <BodyEl>{ props.children }</BodyEl>
+
+export default Page
