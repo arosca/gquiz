@@ -10,6 +10,8 @@ const PageEl = styled(View)`
 
 const BodyEl = styled(View)`
   flex: 1;
+  align-items: center;
+  justify-content: center;
 `
 
 type Props = {

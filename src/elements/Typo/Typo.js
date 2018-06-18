@@ -13,6 +13,15 @@ type ChildrenProps = {
 }
 const pageHeading = (props: ChildrenProps) => <PageHeadingEl>{ props.children }</PageHeadingEl>
 
+const PEl = styled(Text)`
+  margin-vertical: 20px;
+  font-size: 18px;
+  text-align: center;
+`
+
+const p = (props: ChildrenProps) => <PEl>{ props.children }</PEl>
+
 export default {
   pageHeading,
+  p,
 }

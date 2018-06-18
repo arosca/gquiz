@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Text } from 'react-native'
-
 import { Page } from '../../components'
 
 import {
@@ -9,14 +7,20 @@ import {
   Button,
 } from '../../elements'
 
-export default () => (
+type Props = {
+  navigation: {
+    navigate: mixed
+  }
+}
+export default (props: Props) => (
   <Page>
-    <Typo.pageHeading>Welcom to the Trivia Challenge</Typo.pageHeading>
-    <Page.body>
-      <Text>asd</Text>
+    <Typo.pageHeading>Welcom to the {'\n' } Trivia Challenge</Typo.pageHeading>
+    <Page.body center>
+      <Typo.p>You will be presented with 10 True or False questions.</Typo.p>
+      <Typo.p>Can you score 100%?</Typo.p>
     </Page.body>
     <Button.primary
-      onPress={() => null}
+      onPress={() => props.navigation.navigate('Quiz')}
       title="Start the quiz"
     />
   </Page>
