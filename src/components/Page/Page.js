@@ -23,6 +23,6 @@ class Page extends React.Component<Props> {
   }
 }
 
-Page.Body = (props: Props) => <BodyEl>{ props.children }</BodyEl>
+Page.body = (props: Props) => <BodyEl>{ props.children }</BodyEl>
 
 export default Page
