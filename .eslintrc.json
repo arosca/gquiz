@@ -4,5 +4,9 @@
       "react/prefer-stateless-function": 0,
       "react/jsx-filename-extension": 0,
       "semi": [1, "never"]
+    },
+    "globals": {
+      "expect": false,
+      "it": false
     }
 }
