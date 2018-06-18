@@ -14,9 +14,13 @@ const BodyEl = styled(View)`
   justify-content: center;
 `
 
-type Props = {
-  children: mixed
-}
+/**
+ * Generic wrapper component used for every screen
+ * for standardizing layout: alignment, margins and paddings
+ */
+ type Props = {
+   children: mixed
+ }
 class Page extends React.Component<Props> {
   render() {
     return (
@@ -25,6 +29,9 @@ class Page extends React.Component<Props> {
   }
 }
 
+/**
+ * Body of pages
+ */
 Page.body = (props: Props) => <BodyEl>{ props.children }</BodyEl>
 
 export default Page
