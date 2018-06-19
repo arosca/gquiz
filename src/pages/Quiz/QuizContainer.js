@@ -5,7 +5,12 @@ import { Loading } from '../../components'
 
 import Quiz from './Quiz'
 
-export default class QuizContainer extends React.Component {
+type Props = {
+  navigation: {
+    navigate: mixed
+  }
+}
+export default class QuizContainer extends React.Component<Props> {
   state = {
     isReady: false,
     questions: [],
@@ -30,12 +35,13 @@ export default class QuizContainer extends React.Component {
 
   render() {
     const { isReady, error, questions } = this.state
+    const { navigation } = this.props
 
     if (error) return <Loading>Something went wrong!</Loading>
 
     return (
       isReady
-        ? <Quiz questions={questions} />
+        ? <Quiz questions={questions} navigation={navigation} />
         : <Loading>Preparing your quiz</Loading>
     )
   }

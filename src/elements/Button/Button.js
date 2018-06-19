@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components/native'
+// import styled from 'styled-components/native'
 
 import { Button } from 'react-native'
 
@@ -8,12 +8,15 @@ type ButtonProps = {
   onPress: mixed,
 }
 
-const PrimaryEl = styled(Button)`
-`
 const primary = (props: ButtonProps) => (
-  <PrimaryEl {...props} />
+  <Button {...props} />
+)
+
+const secondary = (props: ButtonProps) => (
+  <Button {...props} />
 )
 
 export default {
   primary,
+  secondary,
 }

@@ -29,6 +29,16 @@ class Page extends React.Component<Props> {
   }
 }
 
+const HeadEl = styled(View)`
+  height: 100px;
+`
+
+
+/**
+ * Page header
+ */
+Page.head = (props: Props) => <HeadEl>{ props.children }</HeadEl>
+
 /**
  * Body of page
  */
