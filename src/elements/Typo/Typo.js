@@ -6,10 +6,11 @@ import { Text } from 'react-native'
 const PageHeadingEl = styled(Text)`
   font-size: 24px;
   text-align: center;
+  font-weight: bold;
 `
 
 type ChildrenProps = {
-  children: mixed
+  children: string
 }
 const pageHeading = (props: ChildrenProps) => <PageHeadingEl>{ props.children }</PageHeadingEl>
 

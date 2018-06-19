@@ -1,3 +1,2 @@
 export { default as Page } from './Page/Page'
-
-export default {}
+export { default as Loading } from './Loading/Loading'

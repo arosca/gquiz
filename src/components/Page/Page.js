@@ -30,7 +30,7 @@ class Page extends React.Component<Props> {
 }
 
 /**
- * Body of pages
+ * Body of page
  */
 Page.body = (props: Props) => <BodyEl>{ props.children }</BodyEl>
 
