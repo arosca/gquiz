@@ -98,6 +98,8 @@ export default class Quiz extends React.Component<Props> {
         </Page.head>
         <Page.body>
           <Swiper
+            // eslint-disable-next-line
+            ref={el => this.swipper = el}
             backgroundColor="transparent"
             cards={questions}
             renderCard={this.renderCard}
@@ -113,12 +115,12 @@ export default class Quiz extends React.Component<Props> {
         <Options>
           <Button.secondary
             title="< False"
-            onPress={() => null}
+            onPress={() => this.swipper.swipeLeft()}
           />
           <Typo.b>{questionIndex + 1} of {questions.length}</Typo.b>
           <Button.secondary
             title="True >"
-            onPress={() => null}
+            onPress={() => this.swipper.swipeRight()}
           />
         </Options>
       </Page>
