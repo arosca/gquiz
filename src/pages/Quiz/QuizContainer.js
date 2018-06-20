@@ -21,7 +21,7 @@ export default class QuizContainer extends React.Component<Props> {
 
   async fetchQuiz() {
     try {
-      const res = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean&encode=url3986')
+      const res = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=easy&type=boolean&encode=url3986')
       this.setState({
         questions: res.data.results,
         loading: false,
