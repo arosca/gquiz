@@ -42,21 +42,29 @@ export default class Quiz extends React.Component<Props> {
     complete: false,
   }
 
-  onAnswer = (index) => {
+  onAnswer = (index, answer) => {
     const { questions } = this.props
     const { questionIndex } = this.state
+
+    this.answers.push(answer)
+
     if (questionIndex + 1 < questions.length) {
       this.setState({ questionIndex: index + 1 })
     }
   }
 
+  answers = []
+
   showResults = async () => {
     const {
+      questions,
       navigation: { navigate },
     } = this.props
+
+    // setTimeout is because of this lib issue:
     // https://github.com/alexbrillant/react-native-deck-swiper/issues/102
     await setTimeout(() => null, 100)
-    navigate('Result')
+    navigate('Result', { questions, answers: this.answers })
   }
 
   renderCard = item => (
@@ -93,7 +101,9 @@ export default class Quiz extends React.Component<Props> {
             backgroundColor="transparent"
             cards={questions}
             renderCard={this.renderCard}
-            onSwiped={this.onAnswer}
+            // onSwiped={this.onAnswer}
+            onSwipedLeft={i => this.onAnswer(i, false)}
+            onSwipedRight={i => this.onAnswer(i, true)}
             onSwipedAll={this.showResults}
             cardIndex={0}
             stackSize={1}
