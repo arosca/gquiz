@@ -1,8 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 
-import { Loading } from '../../components'
-
 import Quiz from './Quiz'
 
 type Props = {
@@ -12,7 +10,7 @@ type Props = {
 }
 export default class QuizContainer extends React.Component<Props> {
   state = {
-    isReady: false,
+    loading: true,
     questions: [],
     error: false,
   }
@@ -23,10 +21,10 @@ export default class QuizContainer extends React.Component<Props> {
 
   async fetchQuiz() {
     try {
-      const res = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean')
+      const res = await axios.get('https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean&encode=url3986')
       this.setState({
         questions: res.data.results,
-        isReady: true,
+        loading: false,
       })
     } catch (err) {
       this.setState({ error: err })
@@ -34,15 +32,16 @@ export default class QuizContainer extends React.Component<Props> {
   }
 
   render() {
-    const { isReady, error, questions } = this.state
+    const { loading, error, questions } = this.state
     const { navigation } = this.props
 
-    if (error) return <Loading>Something went wrong!</Loading>
-
     return (
-      isReady
-        ? <Quiz questions={questions} navigation={navigation} />
-        : <Loading>Preparing your quiz</Loading>
+      <Quiz
+        questions={questions}
+        navigation={navigation}
+        loading={loading}
+        error={error}
+      />
     )
   }
 }

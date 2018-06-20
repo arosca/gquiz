@@ -22,7 +22,15 @@ const PEl = styled(Text)`
 
 const p = (props: ChildrenProps) => <PEl>{ props.children }</PEl>
 
+const BEl = styled(Text)`
+  font-weight: bold;
+  font-size: 16px;
+`
+
+const b = (props: ChildrenProps) => <BEl>{ props.children }</BEl>
+
 export default {
   pageHeading,
   p,
+  b,
 }
