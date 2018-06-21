@@ -2,20 +2,31 @@ import React from 'react'
 import styled from 'styled-components/native'
 import Swiper from 'react-native-deck-swiper'
 
-import { View, Dimensions } from 'react-native'
+import {
+  View,
+  Dimensions,
+} from 'react-native'
 
-import { Page, Loading } from '../../components'
-import { Typo, Button } from '../../elements'
+import {
+  Page,
+  Loading,
+} from '../../components'
+
+import {
+  Typo,
+  Button,
+} from '../../elements'
 
 const { width } = Dimensions.get('window')
 
 const Card = styled(View)`
   background-color: ${props => props.theme.lightGray};
-  width: ${width - 100}px;
-  height: 300px;
+  height: 40%;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  width: ${width - 60}px;
+  margin-top: 10%;
 `
 
 const Options = styled(View)`
@@ -98,8 +109,7 @@ export default class Quiz extends React.Component<Props> {
         </Page.head>
         <Page.body>
           <Swiper
-            // eslint-disable-next-line
-            ref={el => this.swipper = el}
+            ref={(el) => { this.swipper = el }}
             backgroundColor="transparent"
             cards={questions}
             renderCard={this.renderCard}
@@ -109,6 +119,8 @@ export default class Quiz extends React.Component<Props> {
             onSwipedAll={this.showResults}
             cardIndex={0}
             stackSize={1}
+            cardVerticalMargin={0}
+            cardHorizontalMargin={0}
             verticalSwipe={false}
           />
         </Page.body>

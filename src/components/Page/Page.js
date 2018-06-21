@@ -30,7 +30,7 @@ class Page extends React.Component<Props> {
 }
 
 const HeadEl = styled(View)`
-  height: 60px;
+  height: 80px;
 `
 
 
