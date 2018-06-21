@@ -12,3 +12,8 @@ it('renders p without crashing', () => {
   const rendered = renderer.create(<Typo.p />).toJSON()
   expect(rendered).toBeTruthy()
 })
+
+it('renders b without crashing', () => {
+  const rendered = renderer.create(<Typo.b />).toJSON()
+  expect(rendered).toBeTruthy()
+})
